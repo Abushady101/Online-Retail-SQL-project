@@ -180,3 +180,9 @@ WHERE `Description` IS NULL OR `Description` = ""
 ALTER TABLE o_retail_staging2
 DROP COLUMN row_num;
 
+-- DROPPING THE TABLE WE DID INTIALLY AND NEVER USED XD
+DROP TABLE o_retail_staging;
+
+-- RENAMING THE TABLE
+
+ALTER TABLE o_retail_staging2 RENAME TO o_retail_cleaned;
