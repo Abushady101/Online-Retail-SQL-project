@@ -55,24 +55,6 @@ To set up this project, all you need is MySQL and the dataset, which is provided
 1. Install MySQL if it’s not already installed.
 2. Import the dataset into a MySQL database using the `LOAD DATA INFILE` or MySQL Workbench's import feature.
 3. Run the SQL scripts provided in this repository to clean and standardize the dataset.
-
-## Key SQL Queries Used
-
-Here are some examples of the SQL queries I used in the cleaning process:
-
-- **Removing Duplicates**:
-
-    
-    `DELETE FROM o_retail_staging2 WHERE id NOT IN (SELECT MIN(id) FROM o_retail_staging2 GROUP BY InvoiceNo, StockCode);`
-    
-- **Changing Data Types**:
-
-    `ALTER TABLE o_retail_staging2 MODIFY COLUMN Quantity INT;`
-    
-- **Handling Null Values**:
-
-    
-    ``DELETE FROM o_retail_staging2 WHERE `Description` IS NULL OR Quantity IS NULL OR InvoiceDate IS NULL;``
     
 
 ## License
