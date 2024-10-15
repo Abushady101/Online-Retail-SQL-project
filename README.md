@@ -61,26 +61,16 @@ To set up this project, all you need is MySQL and the dataset, which is provided
 Here are some examples of the SQL queries I used in the cleaning process:
 
 - **Removing Duplicates**:
-    
-    sql
-    
-    Copy code
+
     
     `DELETE FROM o_retail_staging2 WHERE id NOT IN (SELECT MIN(id) FROM o_retail_staging2 GROUP BY InvoiceNo, StockCode);`
     
 - **Changing Data Types**:
-    
-    sql
-    
-    Copy code
-    
+
     `ALTER TABLE o_retail_staging2 MODIFY COLUMN Quantity INT;`
     
 - **Handling Null Values**:
-    
-    sql
-    
-    Copy code
+
     
     ``DELETE FROM o_retail_staging2 WHERE `Description` IS NULL OR Quantity IS NULL OR InvoiceDate IS NULL;``
     
@@ -91,4 +81,4 @@ This project is open-source and available under the MIT License.
 
 ## Contact Information
 
-For any questions or feedback, feel free to reach out via [your email or GitHub profile link].
+For any questions or feedback, feel free to reach out via abdelrahmanabushady5@gmail.com
