@@ -2,65 +2,64 @@
 
 ## Project Overview
 
-This project involves cleaning and standardizing a dataset that contains information on online purchases. The dataset includes several key columns such as `InvoiceNo`, `StockCode`, `Description`, `Quantity`, `InvoiceDate`, `UnitPrice`, `CustomerID`, and `Country`. The main goal of this project is to prepare the data for further analysis or use by removing incorrect entries, handling null values, and ensuring proper data types.
+This project involved cleaning and analyzing a dataset describing online purchases. The dataset includes various columns such as:
 
-## Technologies Used
+- **InvoiceNo**: Unique identifier for each transaction
+- **StockCode**: Unique identifier for each product
+- **Description**: Description of the product
+- **Quantity**: Number of products purchased
+- **InvoiceDate**: Date of the transaction
+- **UnitPrice**: Price per unit of the product
+- **CustomerID**: Unique identifier for each customer
+- **Country**: Country where the order was placed
 
-- **MySQL**: The entire data-cleaning process was performed using MySQL queries.
+The goal was to clean the data and extract meaningful insights. Only MySQL was used for this project.
 
-## Dataset
+## Data Cleaning Process
 
-The dataset describes online purchases, and it includes the following columns:
+1. **Initial Discovery**: The dataset was explored to understand its structure and quality.
+2. **Removing Duplicates**: Duplicate records were identified and removed.
+3. **Standardizing Data Types**: Many columns were incorrectly formatted as text. These were converted to appropriate data types like integers, floats, and dates.
+4. **Cleaning Invalid Data**: Invalid data (e.g., letters in numeric fields) was identified and removed.
+5. **Handling Null Values**: Null and blank values were removed to ensure data consistency.
 
-- **InvoiceNo**: The invoice number, representing each transaction.
-- **StockCode**: A unique code identifying the product.
-- **Description**: A brief description of the product.
-- **Quantity**: The quantity of each product per transaction.
-- **InvoiceDate**: The date when the transaction occurred.
-- **UnitPrice**: The price of the product per unit.
-- **CustomerID**: A unique identifier for each customer.
-- **Country**: The customer's country.
+No external setup is required for this project aside from MySQL. The cleaned data has been exported to a CSV file for easy import.
 
-## Project Steps
+## Key Insights
 
-### 1. Data Discovery
+Here are some of the most interesting insights gathered from the cleaned dataset:
 
-I began by exploring the data to understand its structure and identify potential issues such as missing values, duplicates, and incorrect data types.
-
-### 2. Removing Duplicates
-
-The dataset contained duplicates, which were removed using MySQL queries to ensure the integrity of the data.
-
-### 3. Standardizing Data Types
-
-Many of the columns were incorrectly formatted as text (e.g., numbers stored as strings). I converted the data types to their appropriate formats:
-
-- **InvoiceNo**, **StockCode**, and **CustomerID** were converted to integers.
-- **Quantity** was also converted to an integer, ensuring no negative values were present.
-- **InvoiceDate** was converted to the correct date format.
-- **UnitPrice** was converted to a floating-point number to reflect prices accurately.
-
-### 4. Removing Incorrect Inputs
-
-I identified and removed incorrect entries where columns contained values that didn’t make sense. For example, any letters in columns expected to hold numbers (like **StockCode** and **CustomerID**) were removed.
-
-### 5. Handling Null Values
-
-All rows with null values in any important column were removed to ensure a complete and clean dataset.
-
-## How to Set Up the Project
-
-To set up this project, all you need is MySQL and the dataset, which is provided in CSV format for easy import.
-
-1. Install MySQL if it’s not already installed.
-2. Import the dataset into a MySQL database using the `LOAD DATA INFILE` or MySQL Workbench's import feature.
-3. Run the SQL scripts provided in this repository to clean and standardize the dataset.
+1. **Which Customer Made the Biggest Order?**
     
+    - **CustomerID**: 15838
+    - **Items Ordered**: 9360
+    - **Item Description**: ROTATING SILVER ANGELS T-LIGHT HLDR
+    - **StockCode**: 84347
+    - **Unit Price**: $0.03
+    - **Country**: United Kingdom
+2. **Which Country Buys the Most?**
+    
+    - **United Kingdom**: 11,216 items purchased
+    - **Germany**: 223 items purchased (second place)
+3. **Which Item is Sold the Most?**
+    
+    - **Item Description**: ROTATING SILVER ANGELS T-LIGHT HLDR
+    - **Quantity Sold**: 9360 times
+4. **Which Item Brought the Most Revenue?**
+    
+    - **Item Description**: VINTAGE UNION JACK MEMOBOARD
+    - **Quantity Sold**: 1008
+    - **Unit Price**: $6.38
+5. **Which Country Paid the Most Revenue?**
+    
+    - **United Kingdom**: $246,976.47
+    - **Germany**: $4,783.20 (second place)
+6. **Which Month Brought the Most Revenue?**
+    
+    - **Month**: July
+    - **Total Items Sold**: 18,195
+    - **Total Revenue**: $51,113.01
 
-## License
+## Conclusion
 
-This project is open-source and available under the MIT License.
-
-## Contact Information
-
-For any questions or feedback, feel free to reach out via abdelrahmanabushady5@gmail.com
+This project allowed for a deep dive into cleaning and analyzing a dataset focused on online retail. The insights gathered show clear trends in customer behavior, country-based purchasing habits, and top-performing products.

@@ -1,8 +1,8 @@
 
--- Checking to see which customer got the biggest order
-SELECT MAX(Quantity) AS max_p, CustomerID, StockCode, UnitPrice, Country
+-- Checking to see which customer made the biggest order
+SELECT MAX(Quantity) AS max_p, CustomerID, StockCode, UnitPrice, Country, `Description`
 FROM o_retail_cleaned
-GROUP BY Country,CustomerID, StockCode, UnitPrice
+GROUP BY Country,CustomerID, StockCode, UnitPrice,`Description`
 ORDER BY max_p DESC;
 
 -- Checking out the top countries that buys stuff online
@@ -25,6 +25,11 @@ FROM o_retail_cleaned
 GROUP BY `Description`,UnitPrice
 ORDER BY total_quantity DESC;
 
+-- checking which item sells the most ordered by total price
+SELECT `Description`, SUM(Quantity) AS total_quantity ,UnitPrice, SUM(Quantity * UnitPrice) AS total_price
+FROM o_retail_cleaned
+GROUP BY `Description`,UnitPrice
+ORDER BY total_price DESC;
 
 -- Checking which country buys the most ranked by total price paid 
 SELECT Country, SUM(Quantity) AS total_quantity , SUM(Quantity * UnitPrice) AS total_price
